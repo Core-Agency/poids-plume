@@ -1,9 +1,34 @@
 /* ==========================================================================
    POIDS PLUME
    --------------------------------------------------------------------------
-   Papier clair, encre noire, un seul accent — le vert des octets gagnés.
-   La couleur ne sert qu'à une chose : dire combien on a allégé.
+   Lavande clair, encre noire, et le violet de Core comme unique accent.
+   ⚠️ UN SEUL ACCENT, ET IL TIENT TOUTE LA PAGE — la règle est inscrite dans
+   la charte de core-agency.be, et c'est elle qui fait qu'une palette se voit.
+   Les jetons viennent de site/src/styles/01-tokens.css.
    ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   LES POLICES SONT EMBARQUEES, PAS APPELEES.
+   Lexend Deca et JetBrains Mono sont servies depuis fonts/, jamais depuis
+   Google Fonts : un appel externe romprait la promesse « aucune requête
+   réseau », qui est l'argument principal de cet outil. Les deux sont sous
+   licence OFL — voir fonts/LICENCE-DES-POLICES.md.
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Lexend Deca';
+  src: url('../fonts/lexend-deca-400.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Lexend Deca';
+  src: url('../fonts/lexend-deca-700.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/jetbrains-mono-var.woff2') format('woff2');
+  font-weight: 100 800; font-style: normal; font-display: swap;
+}
 
 /* `[hidden]` a une spécificité nulle : toute classe posant un `display` le
    bat, et l'élément « caché » reste visible. On le verrouille ici. */
@@ -12,16 +37,16 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 :root {
-  --papier:  #FBFAF7;
+  --papier:  #F1EFFD;
   --carte:   #FFFFFF;
-  --encre:   #111318;
-  --douce:   #6E7278;
-  --filet:   #E6E3DD;
-  --gain:    #12805C;
-  --gain-pale:#E7F3EE;
+  --encre:   #0E0E12;
+  --douce:   #6B6B7A;
+  --filet:   rgba(14, 14, 18, .12);
+  --accent:    #6355E0;
+  --accent-pale:#E7E3FB;
   --rayon:   10px;
-  --ui: ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --chiffres: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+  --ui: 'Lexend Deca', -apple-system, "Segoe UI", Roboto, system-ui, sans-serif;
+  --chiffres: 'JetBrains Mono', ui-monospace, Consolas, monospace;
 }
 
 body {
@@ -68,9 +93,9 @@ body {
   transition: border-color .18s, background .18s, color .18s;
 }
 .depot.survol {
-  color: var(--gain);
-  border-color: var(--gain);
-  background: var(--gain-pale);
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-pale);
 }
 .depot__icone { color: inherit; }
 .depot__titre {
@@ -84,7 +109,7 @@ body {
 .lien {
   padding: 0;
   font: inherit;
-  color: var(--gain);
+  color: var(--accent);
   background: none;
   border: none;
   border-bottom: 1px solid currentColor;
@@ -113,7 +138,7 @@ body {
   font-size: .84rem;
   font-weight: 600;
 }
-.reglage__nom output { font-family: var(--chiffres); font-weight: 400; color: var(--gain); }
+.reglage__nom output { font-family: var(--chiffres); font-weight: 400; color: var(--accent); }
 .reglage__aide {
   display: block;
   margin-top: .45rem;
@@ -132,9 +157,9 @@ body {
   border: 1px solid var(--filet);
   border-radius: 7px;
 }
-.saisie:focus { outline: 2px solid var(--gain); outline-offset: 1px; }
+.saisie:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 
-.curseur { width: 100%; accent-color: var(--gain); }
+.curseur { width: 100%; accent-color: var(--accent); }
 
 /* ------------------------------------------------------------- LE BILAN */
 
@@ -146,8 +171,8 @@ body {
   gap: 1rem;
   margin-top: 1.6rem;
   padding: 1.1rem 1.4rem;
-  background: var(--gain-pale);
-  border: 1px solid #CFE5DC;
+  background: var(--accent-pale);
+  border: 1px solid #CFC9F4;
   border-radius: var(--rayon);
 }
 .bilan__gros {
@@ -161,7 +186,7 @@ body {
   font-size: 1.9rem;
   font-weight: 700;
   letter-spacing: -.03em;
-  color: var(--gain);
+  color: var(--accent);
 }
 .bilan__gros span { font-size: .9rem; color: var(--encre); }
 .bilan__detail {
@@ -183,8 +208,8 @@ body {
   border-radius: 8px;
   cursor: pointer;
 }
-.bouton--plein { color: #fff; background: var(--gain); }
-.bouton--plein:hover { background: #0E6B4D; }
+.bouton--plein { color: #fff; background: var(--accent); }
+.bouton--plein:hover { background: #5344D4; }
 .bouton--discret {
   color: var(--encre);
   background: var(--papier);
@@ -211,7 +236,7 @@ body {
 }
 .carte__vue {
   aspect-ratio: 4 / 3;
-  background: repeating-conic-gradient(#F2F0EC 0 25%, #fff 0 50%) 0 0 / 18px 18px;
+  background: repeating-conic-gradient(#EFECFB 0 25%, #fff 0 50%) 0 0 / 18px 18px;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -241,8 +266,8 @@ body {
   padding: .1rem .45rem;
   font-family: var(--chiffres);
   font-size: .75rem;
-  color: var(--gain);
-  background: var(--gain-pale);
+  color: var(--accent);
+  background: var(--accent-pale);
   border-radius: 5px;
 }
 .carte__gain--nul { color: #8A6D1F; background: #FBF3DD; }

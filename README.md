@@ -7,7 +7,7 @@
 Redimensionne et convertit vos images en WebP, JPEG ou PNG directement dans
 le navigateur. Trois fichiers, aucune dépendance, aucune requête réseau.
 
-[![Essayer](https://img.shields.io/badge/Essayer%20maintenant-12805C?style=for-the-badge&logoColor=white)](https://core-agency.github.io/poids-plume/)
+[![Essayer](https://img.shields.io/badge/Essayer%20maintenant-6355E0?style=for-the-badge&logoColor=white)](https://core-agency.github.io/poids-plume/)
 
 ![Licence](https://img.shields.io/badge/licence-MIT-1A1A1A?style=for-the-badge&labelColor=1A1A1A)
 ![Dépendances](https://img.shields.io/badge/dépendances-aucune-1A1A1A?style=for-the-badge&labelColor=1A1A1A)
