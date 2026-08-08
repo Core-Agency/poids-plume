@@ -1,0 +1,278 @@
+/* ==========================================================================
+   POIDS PLUME
+   --------------------------------------------------------------------------
+   Papier clair, encre noire, un seul accent — le vert des octets gagnés.
+   La couleur ne sert qu'à une chose : dire combien on a allégé.
+   ========================================================================== */
+
+/* `[hidden]` a une spécificité nulle : toute classe posant un `display` le
+   bat, et l'élément « caché » reste visible. On le verrouille ici. */
+[hidden] { display: none !important; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --papier:  #FBFAF7;
+  --carte:   #FFFFFF;
+  --encre:   #111318;
+  --douce:   #6E7278;
+  --filet:   #E6E3DD;
+  --gain:    #12805C;
+  --gain-pale:#E7F3EE;
+  --rayon:   10px;
+  --ui: ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --chiffres: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ui);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--encre);
+  background: var(--papier);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------------------------------------------- ENTETE */
+
+.entete {
+  padding: 2rem 1.5rem 0;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.entete__marque { display: flex; align-items: center; gap: .8rem; }
+.plume { display: inline-flex; }
+.entete h1 {
+  margin: 0;
+  font-size: 1.28rem;
+  font-weight: 650;
+  letter-spacing: -.02em;
+}
+.entete p { margin: .1rem 0 0; font-size: .87rem; color: var(--douce); }
+
+.page { max-width: 1080px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+/* ------------------------------------------------------------- LE DEPOT */
+
+.depot {
+  display: grid;
+  place-items: center;
+  gap: .35rem;
+  padding: 3.2rem 1.5rem;
+  text-align: center;
+  color: var(--douce);
+  background: var(--carte);
+  border: 2px dashed var(--filet);
+  border-radius: var(--rayon);
+  transition: border-color .18s, background .18s, color .18s;
+}
+.depot.survol {
+  color: var(--gain);
+  border-color: var(--gain);
+  background: var(--gain-pale);
+}
+.depot__icone { color: inherit; }
+.depot__titre {
+  margin: .35rem 0 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--encre);
+}
+.depot__aide { margin: 0; font-size: .87rem; }
+
+.lien {
+  padding: 0;
+  font: inherit;
+  color: var(--gain);
+  background: none;
+  border: none;
+  border-bottom: 1px solid currentColor;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------- LES REGLAGES */
+
+.reglages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 1.6rem;
+  padding: 1.4rem;
+  background: var(--carte);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+}
+.reglage { display: block; }
+.reglage__nom {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .5rem;
+  margin-bottom: .5rem;
+  font-size: .84rem;
+  font-weight: 600;
+}
+.reglage__nom output { font-family: var(--chiffres); font-weight: 400; color: var(--gain); }
+.reglage__aide {
+  display: block;
+  margin-top: .45rem;
+  font-size: .78rem;
+  line-height: 1.4;
+  color: var(--douce);
+}
+
+.saisie {
+  width: 100%;
+  padding: .5rem .6rem;
+  font: inherit;
+  font-size: .88rem;
+  color: var(--encre);
+  background: var(--papier);
+  border: 1px solid var(--filet);
+  border-radius: 7px;
+}
+.saisie:focus { outline: 2px solid var(--gain); outline-offset: 1px; }
+
+.curseur { width: 100%; accent-color: var(--gain); }
+
+/* ------------------------------------------------------------- LE BILAN */
+
+.bilan {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.6rem;
+  padding: 1.1rem 1.4rem;
+  background: var(--gain-pale);
+  border: 1px solid #CFE5DC;
+  border-radius: var(--rayon);
+}
+.bilan__gros {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+  margin: 0;
+}
+.bilan__gros b {
+  font-family: var(--chiffres);
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -.03em;
+  color: var(--gain);
+}
+.bilan__gros span { font-size: .9rem; color: var(--encre); }
+.bilan__detail {
+  margin: .1rem 0 0;
+  font-family: var(--chiffres);
+  font-size: .8rem;
+  color: var(--douce);
+}
+
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .6rem 1rem;
+  font: inherit;
+  font-size: .87rem;
+  font-weight: 550;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.bouton--plein { color: #fff; background: var(--gain); }
+.bouton--plein:hover { background: #0E6B4D; }
+.bouton--discret {
+  color: var(--encre);
+  background: var(--papier);
+  border-color: var(--filet);
+}
+.bouton--discret:hover { border-color: var(--douce); }
+
+/* ------------------------------------------------------------ LA GRILLE */
+
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+
+.carte {
+  display: flex;
+  flex-direction: column;
+  background: var(--carte);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  overflow: hidden;
+}
+.carte__vue {
+  aspect-ratio: 4 / 3;
+  background: repeating-conic-gradient(#F2F0EC 0 25%, #fff 0 50%) 0 0 / 18px 18px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.carte__vue img { max-width: 100%; max-height: 100%; display: block; }
+.carte__corps { padding: .8rem .9rem 1rem; }
+.carte__nom {
+  margin: 0 0 .45rem;
+  font-size: .83rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.carte__mesures {
+  display: flex;
+  align-items: baseline;
+  gap: .4rem;
+  margin: 0 0 .2rem;
+  font-family: var(--chiffres);
+  font-size: .8rem;
+  color: var(--douce);
+}
+.carte__mesures del { text-decoration: line-through; }
+.carte__mesures ins { text-decoration: none; color: var(--encre); font-weight: 600; }
+.carte__gain {
+  display: inline-block;
+  margin: .35rem 0 .7rem;
+  padding: .1rem .45rem;
+  font-family: var(--chiffres);
+  font-size: .75rem;
+  color: var(--gain);
+  background: var(--gain-pale);
+  border-radius: 5px;
+}
+.carte__gain--nul { color: #8A6D1F; background: #FBF3DD; }
+.carte__dim { font-size: .76rem; color: var(--douce); }
+.carte__actions { display: flex; gap: .4rem; margin-top: .7rem; }
+.carte__actions .bouton { flex: 1; justify-content: center; padding: .42rem .5rem; font-size: .8rem; }
+
+.vide { margin-top: 2.5rem; text-align: center; color: var(--douce); font-size: .9rem; }
+
+/* --------------------------------------------------------------- LE PIED */
+
+.pied {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  font-size: .82rem;
+  color: var(--douce);
+}
+.pied p { margin: 0 0 .4rem; max-width: 62ch; }
+.pied a { color: var(--encre); }
+.pied__signature { font-size: .8rem; }
+
+/* ---------------------------------------------------------- ECRANS ETROITS */
+
+@media (max-width: 760px) {
+  .reglages { grid-template-columns: 1fr; gap: 1.1rem; }
+  .bilan { flex-direction: column; align-items: stretch; }
+  .bilan .bouton { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
