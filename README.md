@@ -1,6 +1,10 @@
 <div align="center">
 
+<img src="img/core-mark-192.png" width="72" height="72" alt="Marque de Core">
+
 # Poids plume
+
+**Un outil [Core](https://core-agency.be)**
 
 **Alléger ses images pour le web, sans rien téléverser.**
 

@@ -67,7 +67,13 @@ body {
   margin: 0 auto;
 }
 .entete__marque { display: flex; align-items: center; gap: .8rem; }
-.plume { display: inline-flex; }
+.plume { display: block; border-radius: 7px; }
+.entete__lien {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.entete__lien:hover { color: var(--encre); }
 .entete h1 {
   margin: 0;
   font-size: 1.28rem;
