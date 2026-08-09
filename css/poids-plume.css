@@ -307,3 +307,5 @@ body {
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+.entete__tiret, .marque__tiret { color: #6355E0; }

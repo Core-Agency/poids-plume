@@ -2,22 +2,22 @@
 
 <img src="img/core-mark-192.png" width="72" height="72" alt="Marque de Core">
 
-# Poids plume
+# Core — Compression IMG
 
-**Un outil [Core](https://core-agency.be)**
+**Un outil [Core](https://core-agency.be), agence digitale à Charleroi**
 
 **Alléger ses images pour le web, sans rien téléverser.**
 
 Redimensionne et convertit vos images en WebP, JPEG ou PNG directement dans
 le navigateur. Trois fichiers, aucune dépendance, aucune requête réseau.
 
-[![Essayer](https://img.shields.io/badge/Essayer%20maintenant-6355E0?style=for-the-badge&logoColor=white)](https://core-agency.github.io/poids-plume/)
+[![Essayer](https://img.shields.io/badge/Essayer%20maintenant-6355E0?style=for-the-badge&logoColor=white)](https://core-agency.github.io/core-compression-img/)
 
 ![Licence](https://img.shields.io/badge/licence-MIT-1A1A1A?style=for-the-badge&labelColor=1A1A1A)
 ![Dépendances](https://img.shields.io/badge/dépendances-aucune-1A1A1A?style=for-the-badge&labelColor=1A1A1A)
 ![Hors ligne](https://img.shields.io/badge/fonctionne%20hors%20ligne-oui-1A1A1A?style=for-the-badge&labelColor=1A1A1A)
 
-**[core-agency.github.io/poids-plume](https://core-agency.github.io/poids-plume/)**
+**[core-agency.github.io/core-compression-img](https://core-agency.github.io/core-compression-img/)**
 
 </div>
 
